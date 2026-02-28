@@ -8,20 +8,15 @@
 
 ## 기술 스택
 - 언어: Swift
-- UI: SwiftUI + UIKit
-- 아키텍처: MVVM-C (Coordinator)
-- 모듈화: Tuist
+- UI: SwiftUI
+- 아키텍처: Clean Architecture + MVVM
+- 모듈화: Tuist (Micro Feature Architecture)
+- 네비게이션: Router (NavigationStack 기반)
 - 비동기: Swift Concurrency (async/await)
 
 ## 아키텍처
-### MVVM-C 구조
-- Model: 데이터 모델
-- View: SwiftUI View
-- ViewModel: 비즈니스 로직, 상태 관리
-- Coordinator: 화면 전환 로직
-
-### 모듈 구조
-- Core: 공통 유틸, 익스텐션
-- Domain: Entity, UseCase
-- Data: Repository, 로컬/네트워크 데이터 소스
-- Feature: 화면별 모듈 (단어장, 학습, 퀴즈 등)
+- Clean Architecture (Presentation / Domain / Data)
+- Tuist 모듈화 (Micro Feature Architecture)
+- Feature별 독립 모듈 (각 Feature가 자체 Domain/Data/Presentation 보유)
+- Feature 간 공유: SharedDomain + Interface 혼합 전략
+- 의존성 역전 원칙 (DIP) 준수
